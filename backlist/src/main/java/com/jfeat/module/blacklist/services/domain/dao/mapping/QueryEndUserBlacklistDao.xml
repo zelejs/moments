@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jfeat.module.blacklist.services.domain.dao.QueryEndUserBlacklistDao">
+    <sql id="Base_Column_List">
+        t_end_user_blacklist
+        .
+        id
+        , t_end_user_blacklist.user_id AS userId, t_end_user_blacklist.state, t_end_user_blacklist.org_id AS orgId, t_end_user_blacklist.appid, t_end_user_blacklist.user_range AS userRange, t_end_user_blacklist.create_time AS createTime, t_end_user_blacklist.update_time AS updateTime
+    </sql>
+
+    <sql id="QueryOwnedOrgIds">
+        SELECT children.id
+        FROM t_sys_org,
+             t_sys_org as children
+        WHERE t_sys_org.left_num &lt;= children.left_num
+          AND t_sys_org.right_num >= children.left_num
+          and t_sys_org.id = #{record.orgId}
+        order by t_sys_org.node_level ASC
+    </sql>
+
+
+    <select id="queryMasterModel" resultType="EndUserBlacklistModel">
+        SELECT t_end_user_blacklist.*
+        FROM t_end_user_blacklist
+        WHERE t_end_user_blacklist.id = #{id}
+        GROUP BY t_end_user_blacklist.id
+    </select>
+
+
+    <select id="findEndUserBlacklistPage" resultType="EndUserBlacklistRecord" parameterType="EndUserBlacklistRecord">
+        SELECT
+        <include refid="Base_Column_List"/>,t_end_user.phone,t_end_user.name as username,t_end_user.real_name as
+        realName,t_end_user.avatar
+
+        FROM t_end_user_blacklist
+        JOIN t_end_user ON t_end_user.id = t_end_user_blacklist.user_id
+
+
+        <if test="record.orgId > 0">
+            ,(<include refid="QueryOwnedOrgIds"></include>) AS ownedOrgIds
+        </if>
+
+        WHERE 1=1
+
+        <if test="record.orgId > 0">
+            AND t_end_user_blacklist.org_id = ownedOrgIds.id
+        </if>
+
+
+
+
+        <if test="record.id != null and record.id>0 ">
+            AND t_end_user_blacklist.id LIKE CONCAT('%',#{record.id},'%')
+        </if>
+
+
+        <if test="record.userId != null and record.userId>0 ">
+            AND t_end_user_blacklist.user_id LIKE CONCAT('%',#{record.userId},'%')
+        </if>
+        <if test="record.state != null and record.state>0 ">
+            AND t_end_user_blacklist.state LIKE CONCAT('%',#{record.state},'%')
+        </if>
+
+
+        <if test="record.orgId != null and record.orgId>0 ">
+            AND t_end_user_blacklist.org_id IN (<include refid="QueryOwnedOrgIds"/>)
+        </if>
+        <if test="record.appid != null and record.appid!= ''">
+            AND t_end_user_blacklist.appid LIKE CONCAT('%',#{record.appid},'%')
+        </if>
+
+
+        <if test="record.userRange != null and record.userRange>0 ">
+            AND t_end_user_blacklist.user_range LIKE CONCAT('%',#{record.userRange},'%')
+        </if>
+
+
+        <if test="record.createTime != null and record.createTime>0 ">
+            AND t_end_user_blacklist.create_time LIKE CONCAT('%',#{record.createTime},'%')
+        </if>
+
+
+        <if test="record.updateTime != null and record.updateTime>0 ">
+            AND t_end_user_blacklist.update_time LIKE CONCAT('%',#{record.updateTime},'%')
+        </if>
+
+        <if test="startTime != null">
+            <![CDATA[AND t_end_user_blacklist.start_time >= DATE(#{startTime})]]>
+        </if>
+        <if test="endTime != null">
+            <![CDATA[AND t_end_user_blacklist.end_time <= DATE(#{endTime}]]>
+        </if>
+
+    <if test="search != null and search != ''">
+        And(
+        OR t_end_user.phone LIKE CONCAT('%',#{search},'%')
+        OR t_end_user.name LIKE CONCAT('%',#{search},'%')
+        OR t_end_user.real_name LIKE CONCAT('%',#{search},'%')
+        )
+    </if>
+
+        ORDER BY  t_end_user_blacklist.update_time DESC
+        , t_end_user_blacklist.create_time DESC
+    </select>
+</mapper>
