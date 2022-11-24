@@ -26,11 +26,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>zero-io-json</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.jfeat</groupId>-->
+<!--            <artifactId>zero-io-json</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>javax.validation</groupId>
@@ -48,7 +48,13 @@
 
         <dependency>
             <groupId>com.jfeat</groupId>
-            <artifactId>crud-star</artifactId>
+            <artifactId>star</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>blacklist</artifactId>
             <version>1.0.0</version>
         </dependency>
 

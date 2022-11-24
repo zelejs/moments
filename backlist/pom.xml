@@ -41,11 +41,9 @@
             <version>${crud-plus.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>user-account</artifactId>
-            <version>1.0.1</version>
-        </dependency>
+
+
+
 
     </dependencies>
 
