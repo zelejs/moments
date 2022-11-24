@@ -35,6 +35,7 @@ public class AppEndUserBlackListEndpoint {
 
 
     @PostMapping("/{userId}/userAccount/shield")
+    @ApiOperation("拉黑用户")
     public Tip setShieldUserAccount(@PathVariable("userId") Long userId){
         EndUserBlacklist entity = new EndUserBlacklist();
         entity.setUserId(userId);
@@ -44,6 +45,7 @@ public class AppEndUserBlackListEndpoint {
 
 
     @PostMapping("/{userId}/userAccount/unshield")
+    @ApiOperation("取消拉黑")
     public Tip cancelShieldUserAccount(@PathVariable("userId") Long userId){
         EndUserBlacklist entity = new EndUserBlacklist();
         entity.setUserId(userId);
@@ -53,6 +55,7 @@ public class AppEndUserBlackListEndpoint {
 
 
     @PostMapping("/{userId}/userAccount/status")
+    @ApiOperation("获取用户是否被拉黑")
     public Tip getShieldUserAccountStatus(@PathVariable("userId") Long userId){
         return SuccessTip.create(endUserBlacklistService.isUserShield(userId));
     }
