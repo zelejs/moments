@@ -37,12 +37,6 @@
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-dev</artifactId>
-            <version>${crud-dev.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
 <!--        点赞-->
 
@@ -52,10 +46,12 @@
             <version>1.0.0</version>
         </dependency>
 
+
+
         <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>blacklist</artifactId>
-            <version>1.0.0</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.13</version>
         </dependency>
 
     </dependencies>

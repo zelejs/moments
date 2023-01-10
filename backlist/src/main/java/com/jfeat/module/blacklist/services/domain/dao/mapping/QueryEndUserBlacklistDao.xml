@@ -5,7 +5,7 @@
         t_end_user_blacklist
         .
         id
-        , t_end_user_blacklist.user_id AS userId, t_end_user_blacklist.state, t_end_user_blacklist.org_id AS orgId, t_end_user_blacklist.appid, t_end_user_blacklist.user_range AS userRange, t_end_user_blacklist.create_time AS createTime, t_end_user_blacklist.update_time AS updateTime
+        , t_end_user_blacklist.user_id AS userId, t_end_user_blacklist.state, t_end_user_blacklist.org_id AS orgId, t_end_user_blacklist.appid, t_end_user_blacklist.user_range AS userRange, t_end_user_blacklist.create_time AS createTime, t_end_user_blacklist.update_time AS updateTime,t_end_user_blacklist.note
     </sql>
 
     <sql id="QueryOwnedOrgIds">

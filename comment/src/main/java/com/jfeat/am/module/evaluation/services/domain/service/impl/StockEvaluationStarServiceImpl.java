@@ -1,6 +1,7 @@
 package com.jfeat.am.module.evaluation.services.domain.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jfeat.am.core.jwt.JWTKit;
 import com.jfeat.am.module.evaluation.services.domain.model.record.StockEvaluationRecord;
 import com.jfeat.am.module.evaluation.services.domain.service.StockEvaluationService;
 import com.jfeat.am.module.evaluation.services.domain.service.StockEvaluationStarService;
@@ -70,7 +71,8 @@ public class StockEvaluationStarServiceImpl extends CRUDStockEvaluationStarServi
         if (stockFlowers!=null&&stockFlowers.size()>0){
             for (StockEvaluationRecord stockEvaluationRecord:evaluations){
                 for (StockFlower stockFlower:stockFlowerList){
-                    if (stockEvaluationRecord.getId().equals(stockFlower.getStockId())){
+                    Long userId = JWTKit.getUserId();
+                    if (stockEvaluationRecord.getId().equals(stockFlower.getStockId())&&stockFlower.getMemberId().equals(userId)){
                         stockEvaluationRecord.setStared(true);
                         break;
                     }

@@ -36,8 +36,7 @@ public class AppEndUserBlackListEndpoint {
 
     @PostMapping("/{userId}/userAccount/shield")
     @ApiOperation("拉黑用户")
-    public Tip setShieldUserAccount(@PathVariable("userId") Long userId){
-        EndUserBlacklist entity = new EndUserBlacklist();
+    public Tip setShieldUserAccount(@PathVariable("userId") Long userId,@RequestBody EndUserBlacklist entity){
         entity.setUserId(userId);
         entity.setUserRange(true);
         return SuccessTip.create(endUserBlacklistService.setShield(entity));

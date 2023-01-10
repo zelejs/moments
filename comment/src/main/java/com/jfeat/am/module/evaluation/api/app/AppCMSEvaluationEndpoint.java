@@ -2,6 +2,7 @@ package com.jfeat.am.module.evaluation.api.app;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+//import com.jfeat.am.core.jwt.JWTKit;
 import com.jfeat.am.core.jwt.JWTKit;
 import com.jfeat.am.module.evaluation.services.domain.dao.QueryStockEvaluationDao;
 import com.jfeat.am.module.evaluation.services.domain.model.StockEvaluationModel;
@@ -139,6 +140,7 @@ public class AppCMSEvaluationEndpoint {
 
         page.setCurrent(pageNum);
         page.setSize(pageSize);
+
 
         Long memberId = JWTKit.getUserId();
 
