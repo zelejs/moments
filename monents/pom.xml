@@ -1,79 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.jfeat</groupId>
-    <artifactId>star</artifactId>
-    <version>1.1.0</version>
-    <packaging>jar</packaging>
-
-    <name>star</name>
-    <description>star</description>
+    <artifactId>monents</artifactId>
+    <version>1.0.0</version>
 
     <!-- <parent>
-        <groupId>com.jfeat</groupId>
+    <groupId>com.jfeat</groupId>
         <artifactId>pom-base</artifactId>
         <version>1.0.0</version>
         <relativePath/>
     </parent> -->
-    <parent>
-        <groupId>com.jfeat</groupId>
-        <artifactId>pom-parent</artifactId>
-        <version>1.0.0</version>
-        <relativePath/>
-    </parent>     
 
     <properties>
         <skipStandalone>true</skipStandalone>
-        <crud-dev.version>0.0.2</crud-dev.version>
     </properties>
 
     <dependencies>
-        <!-- <dependency>
+        <dependency>
             <groupId>com.jfeat</groupId>
-            <artifactId>crud-dev</artifactId>
-            <version>${crud-dev.version}</version>
-            <scope>provided</scope>
-        </dependency> -->
+            <artifactId>crud-runtime</artifactId>
+            <version>0.0.1</version>
+        </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.jfeat</groupId>
-            <artifactId>crud-core</artifactId>
-            <version>${crud-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-plus</artifactId>
-            <version>${crud-plus.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>jwt-core</artifactId>
-            <version>${jwt-core.version}</version>
-        </dependency>        
-       <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
-            <scope>provided</scope>
-        </dependency>        
-
-<!--        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-notification</artifactId>
+            <artifactId>star</artifactId>
             <version>1.0.0</version>
-        </dependency>-->
+        </dependency>
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>blacklist</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>comment</artifactId>
+            <version>1.1.0</version>
+        </dependency>        
     </dependencies>
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>com.github.kongchen</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
@@ -129,6 +99,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.3.RELEASE</version>
+                <!-- <version>2.2.13.RELEASE</version> -->
                 <configuration>
                     <skip>${skipStandalone}</skip>
                 </configuration>
@@ -161,9 +133,13 @@
             </resource>
         </resources>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>archiva-internal</id>
+            <name>Internal Repository</name>
+            <url>http://120.79.49.72:8081/repository/internal</url>
+        </repository>
+    </distributionManagement>
+
 </project>
-
-
-
-
-

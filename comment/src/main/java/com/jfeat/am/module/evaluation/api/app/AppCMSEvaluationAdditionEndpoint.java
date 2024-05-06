@@ -7,7 +7,6 @@ import com.jfeat.am.module.evaluation.services.domain.model.record.StockEvaluati
 import com.jfeat.am.module.evaluation.services.domain.service.StockEvaluationAdditionService;
 import com.jfeat.am.module.evaluation.services.domain.service.StockEvaluationService;
 import com.jfeat.am.module.evaluation.services.persistence.dao.StockEvaluationAdditionMapper;
-import com.jfeat.am.module.evaluation.services.persistence.model.StockEvaluation;
 import com.jfeat.am.module.evaluation.services.persistence.model.StockEvaluationAddition;
 import com.jfeat.crud.base.annotation.BusinessLog;
 import com.jfeat.crud.base.exception.BusinessCode;
