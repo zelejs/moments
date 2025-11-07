@@ -5,19 +5,12 @@
 
     <groupId>com.jfeat</groupId>
     <artifactId>comment</artifactId>
-    <version>1.1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>MONENTS-COMMENT</name>
     <description>MONENTS-COMMENT</description>
 
-
-    <!-- <parent>
-        <groupId>com.jfeat</groupId>
-        <artifactId>pom-base</artifactId>
-        <version>1.0.0</version>
-        <relativePath/>
-    </parent> -->
     <parent>
         <groupId>com.jfeat</groupId>
         <artifactId>pom-parent</artifactId>
@@ -27,50 +20,46 @@
 
     <properties>
         <skipStandalone>true</skipStandalone>
-        <!-- <crud-dev.version>0.0.2</crud-dev.version> -->
     </properties>
 
     <dependencies>
-<!--        点赞-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>star</artifactId>
             <version>1.0.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
+<!-- crud-core, crud-plus, jwt-core  -->
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-core</artifactId>
             <version>${crud-core.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-plus</artifactId>
             <version>${crud-plus.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>jwt-core</artifactId>
             <version>${jwt-core.version}</version>
+            <scope>provided</scope>
         </dependency>        
        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
-            <scope>provided</scope>
+            <version>${mysql.version}</version>
+            <scope>runtime</scope>
         </dependency>
-
-         <!-- <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-        </dependency> -->
-        
     </dependencies>
 
     <build>

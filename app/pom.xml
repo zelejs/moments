@@ -7,18 +7,24 @@
     <artifactId>monents</artifactId>
     <version>1.0.0</version>
 
-    <parent>
+    <!-- <parent>
     <groupId>com.jfeat</groupId>
-        <artifactId>pom-parent</artifactId>
+        <artifactId>pom-base</artifactId>
         <version>1.0.0</version>
         <relativePath/>
-    </parent>
+    </parent> -->
 
     <properties>
         <skipStandalone>true</skipStandalone>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>crud-runtime</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>star</artifactId>
@@ -32,7 +38,7 @@
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>comment</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </dependency>        
     </dependencies>
 
@@ -128,12 +134,12 @@
         </resources>
     </build>
 
-    <!-- <distributionManagement>
+    <distributionManagement>
         <repository>
             <id>archiva-internal</id>
             <name>Internal Repository</name>
             <url>http://120.79.49.72:8081/repository/internal</url>
         </repository>
-    </distributionManagement> -->
+    </distributionManagement>
 
 </project>
