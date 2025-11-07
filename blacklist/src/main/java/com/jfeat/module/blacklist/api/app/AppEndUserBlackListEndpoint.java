@@ -2,7 +2,6 @@ package com.jfeat.module.blacklist.api.app;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jfeat.crud.base.annotation.BusinessLog;
 import com.jfeat.crud.base.exception.BusinessCode;
 import com.jfeat.crud.base.exception.BusinessException;
 import com.jfeat.crud.base.tips.SuccessTip;
@@ -14,7 +13,6 @@ import com.jfeat.module.blacklist.services.gen.persistence.model.EndUserBlacklis
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/u/blacklist")
+@RequestMapping("/api/cms/blacklist")
 public class AppEndUserBlackListEndpoint {
 
     @Resource

@@ -55,7 +55,7 @@ import com.alibaba.fastjson.JSONArray;
  */
 @RestController
 @Api("EndUserBlacklist")
-@RequestMapping("/api/crud/blacklist/endUserBlacklist/endUserBlacklists")
+@RequestMapping("/api/adm/cms/blacklist")
 public class EndUserBlacklistEndpoint {
 
     @Resource

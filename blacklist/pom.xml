@@ -16,7 +16,6 @@
 
     <properties>
         <skipStandalone>true</skipStandalone>
-        <lombok.version>1.18.4</lombok.version>
     </properties>
 
     <dependencies>
@@ -25,26 +24,30 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+        
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-core</artifactId>
             <version>${crud-core.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-plus</artifactId>
             <version>${crud-plus.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>jwt-core</artifactId>
             <version>${jwt-core.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

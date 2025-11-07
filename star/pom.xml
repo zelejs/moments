@@ -26,49 +26,36 @@
 
     <properties>
         <skipStandalone>true</skipStandalone>
-        <crud-dev.version>0.0.2</crud-dev.version>
     </properties>
 
     <dependencies>
-        <!-- <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-dev</artifactId>
-            <version>${crud-dev.version}</version>
-            <scope>provided</scope>
-        </dependency> -->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-core</artifactId>
-            <version>${crud-core.version}</version>
-        </dependency>
+
+<!-- crud-core, crud-plus, jwt-core  -->
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-plus</artifactId>
             <version>${crud-plus.version}</version>
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>jwt-core</artifactId>
             <version>${jwt-core.version}</version>
+            <scope>provided</scope>
         </dependency>        
+
        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>        
-
-<!--        <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-notification</artifactId>
-            <version>1.0.0</version>
-        </dependency>-->
     </dependencies>
 
     <build>

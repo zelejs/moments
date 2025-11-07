@@ -33,9 +33,8 @@ import java.util.Date;
 
 @RestController
 @Api("追加 评价")
-@RequestMapping("/api/u/cms/evaluation")
+@RequestMapping("/api/cms/comment")
 public class AppCMSEvaluationAdditionEndpoint {
-
 
     @Resource
     StockEvaluationAdditionService stockEvaluationAdditionService;
